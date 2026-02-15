@@ -1,0 +1,42 @@
+{
+    "metrics": [
+        {
+            "title": "Ventas Totales",
+            "value": "$125,430"
+        },
+        {
+            "title": "Nuevos Usuarios",
+            "value": "1,204"
+        },
+        {
+            "title": "Tasa de Rebote",
+            "value": "23%"
+        }
+    ],
+    "transactions": [
+        {
+            "id": "txn_001",
+            "product": "Producto A",
+            "date": "2024-01-15",
+            "amount": 150.00
+        },
+        {
+            "id": "txn_002",
+            "product": "Producto B",
+            "date": "2024-01-16",
+            "amount": 220.50
+        },
+        {
+            "id": "txn_003",
+            "product": "Producto C",
+            "date": "2024-01-17",
+            "amount": 89.99
+        },
+        {
+            "id": "txn_004",
+            "product": "Producto A",
+            "date": "2024-01-18",
+            "amount": 150.00
+        }
+    ]
+}
