@@ -3,54 +3,68 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dashboard de Datos - Parte I del Proyecto</title>
+    <title>Dashboard</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <div class="dashboard-container">
+        <!-- Header -->
         <header class="dashboard-header">
-            <h1>Dashboard</h1>
-            <div class="search-bar">
-                <input type="text" placeholder="Buscar...">
+            <div class="header-content">
+                <h1>Dashboard</h1>
+                <p class="subtitle">Centro de Control de Datos</p>
+            </div>
+            <div class="header-actions">
+                <input type="text" class="search-bar" placeholder="Buscar...">
+                <button class="btn-refresh" id="refreshBtn">Actualizar</button>
             </div>
         </header>
 
+        <!-- Navegación Lateral -->
         <nav class="dashboard-nav">
-            <ul>
-                <li><a href="#">Inicio</a></li>
-                <li><a href="#">Métricas</a></li>
-                <li><a href="#">Reportes</a></li>
-                <li><a href="#">Configuración</a></li>
+            <ul class="nav-list">
+                <li><a href="#" class="nav-link active">Inicio</a></li>
+                <li><a href="#" class="nav-link">Metricas</a></li>
+                <li><a href="#" class="nav-link">Reportes</a></li>
+                <li><a href="#" class="nav-link">Configuración</a></li>
             </ul>
         </nav>
 
+        <!-- Contenido Principal -->
         <main class="dashboard-main">
-            <section class="metrics-cards">
-                <!-- Las tarjetas de métricas se generarán aquí -->
+            <!-- Sección de Métricas -->
+            <section class="metrics-section">
+                <h2>Metricas Principales</h2>
+                <div class="metrics-cards" id="metricsContainer">
+                    <!-- Las tarjetas se generarán dinámicamente -->
+                </div>
             </section>
 
-            <section class="data-table-section">
-                <h2>Datos de Transacciones</h2>
-                <table class="data-table">
-                    <thead>
-                        <tr>
-                            <th>ID</th>
-                            <th>Producto</th>
-                            <th>Fecha</th>
-                            <th>Monto</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <!-- Las filas de la tabla se generarán aquí -->
-                    </tbody>
-                </table>
-            </section>
-
+            <!-- Sección de Gráfico -->
             <section class="chart-section">
-                <h2>Visualización de Datos</h2>
+                <h2>Analisis de Transacciones</h2>
                 <div class="chart-container">
-                    <!-- El gráfico se puede integrar aquí -->
-                    <p>Área para el gráfico.</p>
+                    <canvas id="barChart"></canvas>
+                </div>
+            </section>
+
+            <!-- Sección de Tabla -->
+            <section class="data-table-section">
+                <h2>Detalle de Transacciones</h2>
+                <div class="table-wrapper">
+                    <table class="data-table">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Producto</th>
+                                <th>Fecha</th>
+                                <th>Monto</th>
+                            </tr>
+                        </thead>
+                        <tbody id="tableBody">
+                            <!-- Las filas se generarán dinámicamente -->
+                        </tbody>
+                    </table>
                 </div>
             </section>
         </main>
