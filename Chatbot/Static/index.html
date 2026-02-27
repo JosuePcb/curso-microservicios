@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chatbot</title>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <main id="main">
+        <div id="welcome-container">
+            <p id="welcome">ChatBot</p>
+        </div>
+
+        <div class="input-container">
+            <textarea name="request" id="request" placeholder="Ask to chatbot" rows="1"></textarea>
+
+            <input type="file" name="submitFile" id="submitFile">
+            <label for="submitFile" class="file-upload">
+                <i data-lucide="file-text"></i>
+            </label>
+            <button type="submit" id="sendBtn" class="send-btn"><i data-lucide="send-horizontal"></i></button>
+        </div>
+
+
+
+        <!-- Loading spinner -->
+        <div id="loading" class="loading-container">
+            <div class="spinner"></div>
+            <p class="loading-text"></p>
+        </div>
+
+    </main>
+    <script>lucide.createIcons();</script>
+    <script src="script.js"></script>
+</body>
+</html>
