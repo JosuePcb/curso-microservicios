@@ -20,17 +20,18 @@ app.add_middleware(
     allow_methods=["*"],
     allow_headers=["*"],
 )
-
+class ChatRequest(pydantic.BaseModel):
+    text: str
 
 
 @app.post("/generate")
-async def chat(request: str):
+async def chat(request: ChatRequest):
     try:
         response = client.models.generate_content(
             model="gemini-3.1-pro-preview",
             contents=request
         )
         
-        return response
+        return {"response": response.text}
     except Exception as e:
         raise HTTPException(status_code=500, detail=str(e))

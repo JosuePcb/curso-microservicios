@@ -5,7 +5,7 @@ const fileName = document.getElementById("fileName");
 const removeFile = document.getElementById("removeFile");
 const textarea = document.getElementById("request");
 
-const enlace = "http://127.0.0.1:5500/Chatbot/Static/index.html";
+const enlace = "http://localhost:5500";
 
 // CAMBIO MODO OSCURO/CLARO
 const themeToggle = document.getElementById("themeToggle");
@@ -59,23 +59,22 @@ themeToggle.addEventListener("click", () => {
 
 // Envio de datos
 const generateBtn = document.getElementById("sendBtn");
-const loadingEl = document.getElementById("loading");
 
-generateBtn.addEventListener("click", async function () {
-  var text = textarea.value.trim();
+generateBtn.addEventListener("click", async function (e) {
+  // Prevenir que el form haga submit clásico
+  e.preventDefault();
+
+  const text = textarea.value.trim();
 
   if (!text) {
-    showToast("Por favor ingresa texto o un archivo para generar", "error");
+    alert("Por favor ingresa texto para continuar");
     return;
   }
 
-  // Mostrar loading
   generateBtn.disabled = true;
-  generateBtn.textContent = "Generando...";
-  loadingEl.style.display = "flex";
 
   try {
-    var response = await authFetch("/generate", {
+    const response = await fetch(enlace + "/generate", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -84,14 +83,17 @@ generateBtn.addEventListener("click", async function () {
     });
 
     if (!response.ok) {
-      var error = await response.json();
+      const error = await response.json();
       throw new Error(error.detail || "Error al generar");
     }
+
+    const data = await response.json();
+    console.log("Respuesta:", data.response);
+    // Aquí puedes mostrar data.response en el DOM
+    alert(data.response);
   } catch (error) {
-    showToast(error.message, "error");
+    alert("Error: " + error.message);
   } finally {
     generateBtn.disabled = false;
-    generateBtn.textContent = "Generar Flashcards";
-    loadingEl.style.display = "none";
   }
 });
