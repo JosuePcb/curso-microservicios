@@ -1,1 +1,9 @@
+# MODULO PARA EL LUCIDE
 node_modules/
+
+# VARIABLES DE ENTORNO (gemini api key)
+.env
+
+.venv/
+
+.vscode/

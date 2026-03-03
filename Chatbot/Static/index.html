@@ -1,44 +1,53 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Chatbot</title>
     <script src="https://unpkg.com/lucide@latest"></script>
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
     <main id="main">
-        <div id="welcome-container">
-            <p id="welcome">ChatBot</p>
+      <div id="welcome-container">
+        <p id="welcome">ChatBot</p>
+      </div>
+
+      <form class="input-container" action="/generate" method="post">
+        <div class="file-preview" id="filePreview" style="display: none">
+          <div class="file-preview-item">
+            <img id="fileThumb" src="" alt="" />
+            <span id="fileName"></span>
+            <button id="removeFile">✕</button>
+          </div>
         </div>
 
-        <div class="input-container">
+        <textarea
+          name="request"
+          id="request"
+          placeholder="Ask to chatbot"
+          rows="1"
+        ></textarea>
 
-            <div class="file-preview" id="filePreview" style="display:none;">
-                <div class="file-preview-item">
-                    <img id="fileThumb" src="" alt="">
-                    <span id="fileName"></span>
-                    <button id="removeFile">✕</button>
-                </div>
-            </div>
+        <div class="input-actions">
+          <input type="file" name="submitFile" id="submitFile" />
+          <label for="submitFile" class="file-upload">
+            <i data-lucide="file-text"></i>
+          </label>
 
-            <textarea name="request" id="request" placeholder="Ask to chatbot" rows="1"></textarea>
-
-            <div class="input-actions">
-                <input type="file" name="submitFile" id="submitFile">
-                <label for="submitFile" class="file-upload">
-                    <i data-lucide="file-text"></i>
-                </label>
-         
-                <button type="submit" id="sendBtn" class="send-btn"><i data-lucide="send-horizontal"></i></button>
-            </div>
+          <button type="submit" id="sendBtn" class="send-btn">
+            <i data-lucide="send-horizontal"></i>
+          </button>
         </div>
-        <button id="themeToggle" class="theme-toggle">
-            <i data-lucide="sun"></i>
-        </button>
+      </form>
+
+      <button id="themeToggle" class="theme-toggle">
+        <i data-lucide="sun"></i>
+      </button>
     </main>
-    <script>lucide.createIcons();</script>
+    <script>
+      lucide.createIcons();
+    </script>
     <script src="script.js"></script>
-</body>
+  </body>
 </html>

@@ -1,204 +1,199 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap");
 
 :root {
-    --color-principal: #08090A;
-    --color-secundario: #c0c1c1d8;
-    --color-terciario: #8789C0;
-    --color-cuarto: #7CC6FE;
+  --color-principal: #08090a;
+  --color-secundario: #c0c1c1d8;
+  --color-terciario: #8789c0;
+  --color-cuarto: #7cc6fe;
 }
 
-
-
 body {
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;
-    margin: 0;
-    background-color: var(--color-principal);
-    font-family: "Roboto", sans-serif;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  margin: 0;
+  background-color: var(--color-principal);
+  font-family: "Roboto", sans-serif;
 }
 
 body.light-mode {
-    --color-principal: #c0c1c1d8;
-    --color-secundario: #08090A;
-    --color-terciario: #8789C0;
-    --color-cuarto: #7CC6FE;
+  --color-principal: #c0c1c1d8;
+  --color-secundario: #08090a;
+  --color-terciario: #8789c0;
+  --color-cuarto: #7cc6fe;
 }
 
 /* ===== Main ===== */
 
 main {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    opacity: 0;
-    transform: translateY(20px);
-    animation: fade 0.8s ease-out forwards;
-    padding: 0 20px 40px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fade 0.8s ease-out forwards;
+  padding: 0 20px 40px;
 }
 
 @keyframes fade {
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 .theme-toggle {
-    position: fixed;
-    top: 16px;
-    right: 16px;
-    background: transparent;
-    border: 1.5px solid var(--color-terciario);
-    border-radius: 50%;
-    width: 40px;
-    height: 40px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    color: var(--color-secundario);
-    transition: background 0.3s, color 0.3s;
-    z-index: 999;
+  position: fixed;
+  top: 16px;
+  right: 16px;
+  background: transparent;
+  border: 1.5px solid var(--color-terciario);
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  color: var(--color-secundario);
+  transition:
+    background 0.3s,
+    color 0.3s;
+  z-index: 999;
 }
 
 .theme-toggle:hover {
-    background: var(--color-terciario);
-    color: var(--color-principal);
+  background: var(--color-terciario);
+  color: var(--color-principal);
 }
-
 
 #welcome-container {
-    text-align: center;
-    margin-bottom: 24px;
+  text-align: center;
+  margin-bottom: 24px;
 }
 
-
 #welcome {
-    color: var(--color-secundario);
-    text-shadow: 1px 1px 2px var(--color-terciario);
-    font-size: clamp(2.5rem, 5vw, 4rem);
-    line-height: 1.2;
-    text-align: center;
-    margin: 0;
+  color: var(--color-secundario);
+  text-shadow: 1px 1px 2px var(--color-terciario);
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  line-height: 1.2;
+  text-align: center;
+  margin: 0;
 }
 
 /* ===== INPUT ===== */
 
 .input-container {
-    display: flex;
-    flex-direction: column;
-    align-items: stretch; 
-    position: relative;
-    height:auto;
-    max-height: 35vh;
-    width: 30vw;
-    min-width: 20rem;
-    max-width: 100%;
-    margin: 0 auto;
-    border-radius: 1vw;
-    padding: 10px; 
-    background-color: var(--color-secundario); 
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  position: relative;
+  height: auto;
+  max-height: 35vh;
+  width: 30vw;
+  min-width: 20rem;
+  max-width: 100%;
+  margin: 0 auto;
+  border-radius: 1vw;
+  padding: 10px;
+  background-color: var(--color-secundario);
 }
 
-
 textarea {
-    flex-grow: 1;
-    height: 100%;
-    box-sizing: border-box;
-    width: 100%;
-    background: transparent;
-    border: none;
-    outline: none;
-    resize: none;
-    font-family: "Roboto";
-    padding: 10px 45px 50px 45px; 
-    min-height: 40px;
-    color: var(--color-principal);
-    overflow-y: auto;
+  flex-grow: 1;
+  height: 100%;
+  box-sizing: border-box;
+  width: 100%;
+  background: transparent;
+  border: none;
+  outline: none;
+  resize: none;
+  font-family: "Roboto";
+  padding: 10px 45px 50px 45px;
+  min-height: 40px;
+  color: var(--color-principal);
+  overflow-y: auto;
 }
 
 textarea::-webkit-scrollbar {
-    display: none;
+  display: none;
 }
 
 textarea:focus {
-    outline: none;
+  outline: none;
 }
 #submitFile {
-    display: none;
+  display: none;
 }
 
 .input-actions {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 4px 5px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 4px 5px;
 }
 
 .send-btn {
-    right: 15px;
-    bottom: 10px;
-    background: transparent;
-    border: none;
-    color: var(--color-principal); 
-    cursor: pointer;
+  right: 15px;
+  bottom: 10px;
+  background: transparent;
+  border: none;
+  color: var(--color-principal);
+  cursor: pointer;
 }
-
 
 .file-upload {
-    left: 15px;
-    bottom: 12px;
-    cursor: pointer;
-    color: var(--color-principal);
+  left: 15px;
+  bottom: 12px;
+  cursor: pointer;
+  color: var(--color-principal);
 }
-
 
 /* File upload */
 
 .file-preview {
-    padding: 8px 5px 4px 5px;
+  padding: 8px 5px 4px 5px;
 }
 
 .file-preview-item {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    background-color: #1e1e1e;
-    border-radius: 10px;
-    padding: 6px 10px;
-    width: fit-content;
-    max-width: 160px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background-color: #1e1e1e;
+  border-radius: 10px;
+  padding: 6px 10px;
+  width: fit-content;
+  max-width: 160px;
 }
 
 .file-preview-item img {
-    width: 36px;
-    height: 36px;
-    object-fit: cover;
-    border-radius: 6px;
+  width: 36px;
+  height: 36px;
+  object-fit: cover;
+  border-radius: 6px;
 }
 
 #fileName {
-    color: var(--color-secundario);
-    font-size: 0.75rem;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    max-width: 80px;
+  color: var(--color-secundario);
+  font-size: 0.75rem;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 80px;
 }
 
 #removeFile {
-    background: none;
-    border: none;
-    color: var(--color-secundario);
-    cursor: pointer;
-    font-size: 0.75rem;
-    padding: 0;
-    opacity: 0.6;
+  background: none;
+  border: none;
+  color: var(--color-secundario);
+  cursor: pointer;
+  font-size: 0.75rem;
+  padding: 0;
+  opacity: 0.6;
 }
 
 #removeFile:hover {
-    opacity: 1;
+  opacity: 1;
 }

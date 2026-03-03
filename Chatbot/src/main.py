@@ -1,6 +1,8 @@
 import os
 
 from fastapi import FastAPI # type: ignore
+from fastapi.middleware.cors import CORSMiddleware
+import pydantic
 from dotenv import load_dotenv  
 from google import genai
 
@@ -11,12 +13,24 @@ client = genai.Client(api_key=os.getenv("GEMINI_API_KEY"))
 
 app = FastAPI()
 
-@app.post("/chat")
-def chat(message: str):
-    response = client.chat(
-        model="gemini-3.1-pro-preview",
-        messages=[
-            {"role": "user", "content": message}
-        ]
-    )
-    return {"response": response}
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
+
+
+
+@app.post("/generate")
+async def chat(request: str):
+    try:
+        response = client.models.generate_content(
+            model="gemini-3.1-pro-preview",
+            contents=request
+        )
+        
+        return response
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=str(e))
