@@ -2,7 +2,7 @@
 
 ## ⚙️ Requisitos
 
-- Python 3.11+
+- Python 3.10+
 - [uv](https://docs.astral.sh/uv/) (gestor de paquetes)
 - API Key de Google Gemini → [aistudio.google.com](https://aistudio.google.com)
 - Live Server (extensión de VS Code) para el frontend
